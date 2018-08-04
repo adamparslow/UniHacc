@@ -101,8 +101,12 @@ function addFields() {
 function displayGroup(groupName){
    	console.log("thigns");
 	var main = document.getElementById("main");
+	while(main.firstChild){
+		main.removeChild(main.firstChild);
+	}
 	var title = document.createElement('h3');
 	title.innerHTML = groupName;
+	main.appendChild(title);
    	console.log(main);
 	chrome.storage.sync.get(groupName,function(group){
       console.log(group);
