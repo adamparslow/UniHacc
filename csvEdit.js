@@ -17,3 +17,7 @@ function getData(groupName){
           console.log(items);
         });
 }
+
+function removeGroup(groupName){
+	chrome.storage.sync
+}
