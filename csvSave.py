@@ -1,10 +1,6 @@
 # Example Python script 
 # (for rapydscript, a python to javascript compiler)
 
-#def doHelloMessage():
-#    alert('hello')
-#doHelloMessage()
-
 import csv
 
 def saveCourse(courseName, *args):
