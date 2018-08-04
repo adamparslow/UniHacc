@@ -12,8 +12,8 @@
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
-        width:780px;
-        height:580px;
+        width:480px;
+        height:280px;
       }
       #status {
         /* avoid an excessively wide status text */
@@ -30,6 +30,11 @@
       #plusMenu {
          width: 100%;
          height: 100%;
+         background:white;
+         position: absolute;
+         left: 0px;
+         top: 0px;
+         visibility: hidden;
       }
     </style>
 
@@ -52,11 +57,12 @@
             <div class="row">
                <div class="col"></div>
                <div class="col">
-                  <a href="#">COMP1521</a>
-                  <a href="#">COMP1521</a>
-                  <a href="#">COMP1521</a>
-                  <a href="#">COMP1521</a>
-                  <a href="#">COMP1521</a>
+                  <button href="#">COMP1521</button>
+                  <button href="#">COMP1521</button>
+                  <button href="#">COMP1521</button>
+                  <button href="#">COMP1521</button>
+                  <button href="#">COMP1521</button>
+
                </div>
                <div class="col"></div>
             </div>
@@ -67,6 +73,12 @@
       </div>
     </div>
 
-    <div id="plusMenu"><div>
+    <div id="plusMenu">
+      <!-- <form>
+         <label for="groupName">Group Name: </label>
+         <input type="text" name="name">
+      </form> -->
+      all of the things
+    </div>
   </body>
 </html>
