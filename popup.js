@@ -98,29 +98,38 @@ function addFields() {
 }
 
 function displayGroup(groupName){
+   console.log("thigns");
 	var main = document.getElementById("main");
-	chrome.storage.sync.get(groupName,function(items){
-		for(i = 0; i < items.length(); i++){
+   console.log(main);
+	chrome.storage.sync.get(groupName,function(group){
+      console.log(group);
+      var items = Object.values(group)[0];
+      console.log(items);
+		for(i = 0; i < items.length; i++){
 			var link = document.createElement('a');
+         console.log(link);
 			link.href = items[i][1];
 			link.innerHTML = items[i][0];
 			main.appendChild(link);
 			var br = document.createElement('br');
-	   		main.appendChild(br);
-   		}
+   		main.appendChild(br);
+		}
 	});
 }
 
 function loadGroups() {
    chrome.storage.sync.get(null, function (items) {
       var keys = Object.keys(items);
-      var sidebar = document.getElementById('sticky_sidebar');
+      var sidebar = document.getElementById('sidebar');
       console.log(keys);
       keys.forEach(function (key) {
          var button = document.createElement('button');
-         // Add event listener
-         console.log(key);
+         // console.log(key);
          button.innerHTML = key.toString();
+         button.onclick = function () {
+            displayGroup(key.toString());
+         }
+
          sidebar.appendChild(button);
       });
    });
