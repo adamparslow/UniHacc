@@ -112,8 +112,12 @@ function displayGroup(groupName){
       var items = Object.values(group)[0];
       console.log(items);
 		for(i = 0; i < items.length; i++){
+			var icon = document.createElement('img');
+			icon.src = "http://s2.googleusercontent.com/s2/favicons?domain_url=" 
+						+ items[i][1];
+			main.appendChild(icon);
 			var link = document.createElement('a');
-         console.log(link);
+         	console.log(link);
 			link.href = items[i][1];
 			link.innerHTML = items[i][0];
 			main.appendChild(link);
