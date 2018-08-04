@@ -97,6 +97,19 @@ function addFields() {
    console.log(fields);
 }
 
+function displayGroup(groupName){
+	var main = document.getElementById("main");
+	chrome.storage.sync.get(groupName,function(items){
+		for(i = 0; i < items.length(); i++){
+			var link = document.createElement('a');
+			link.href = items[i][1];
+			link.innerHTML = items[i][0];
+			main.appendChild(link);
+			var br = document.createElement('br');
+	   		main.appendChild(br);
+   		}
+	});
+}
 
 function loadGroups() {
    chrome.storage.sync.get(null, function (items) {
