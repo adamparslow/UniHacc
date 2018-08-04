@@ -7,13 +7,13 @@ function addGroup(groupName, args) {
 		data.push([arguments[i], arguments[i+1]])
 	}
 	console.log(data);
-	chrome.storage.sync.set({groupName: data}, {
-          console.log('Value is set to ' + value);
-        });
-}	
+	var obj = {};
+	obj[groupName] = data;
+	chrome.storage.local.set(obj);
+}
 
 function getData(groupName){
-	chrome.storage.sync.get(groupName, function(items){
+	chrome.storage.local.get(groupName, function(items){
           console.log(items);
         });
 }
