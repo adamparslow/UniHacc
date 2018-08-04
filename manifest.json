@@ -9,18 +9,18 @@
      "scripts": ["background.js"],
      "persistent": false
   },
-
-  "web_accessible_resource": [
+/*
+  "web_accessible_resources": [
      "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
   ],
 
   "content_scripts": [
       {
-        "matches": [],  
-        "css": ["https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"]
+        "js": ["popup.js", "js/bootstrap.min.js"],
+        "css": ["css/bootstrap.min.css"]
       }
   ],
-
+*/
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
