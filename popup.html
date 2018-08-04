@@ -12,7 +12,7 @@
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
-        width:480px;
+        width:540px;
         height:280px;
       }
       #status {
@@ -34,7 +34,7 @@
          position: absolute;
          left: 0px;
          top: 0px;
-         visibility: hidden;
+         visibility: visible;
       }
     </style>
 
@@ -45,6 +45,12 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
     <script src="popup.js"></script>
+    <script type="text/javascript">
+      
+      function addFields() {
+
+      }
+    </script>
   </head>
   <body>
     <div id="status"></div>
@@ -74,11 +80,13 @@
     </div>
 
     <div id="plusMenu">
-      <!-- <form>
-         <label for="groupName">Group Name: </label>
-         <input type="text" name="name">
-      </form> -->
-      all of the things
+      <form>
+         Group Name: <input type="text" name="name"> <br>
+         Name: <input type="text" name="name0"> Link: <input type="text" name="link0"> <br>
+         <button #id="addRow" class="button button-default"><span class="glyphicon">&#x2b;</span></button>
+         <button #id="submit" type="submit" class="button button-default">Submit</button>
+      </form>
+
     </div>
   </body>
 </html>
