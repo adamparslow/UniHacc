@@ -1,5 +1,6 @@
 For chrome extension:
 - Build UI
+- Get relevant Google APIs
 - Make redirects inside buttons
 - Make user input capability
 - Make user input save capability in database (either based on login or on machine key)
