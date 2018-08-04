@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
     loadGroups();
 
     var plus = document.getElementById("plus");
-    
-    plus.addEventListener("click", function() {
-        openPlusMenu(); 
+    var sub = document.getElementById("submit");
+    var addRow = document.getElementById("addRow");
 
-<<<<<<< HEAD
+    plus.addEventListener("click", function() {
+        openPlusMenu();
+    });
+
     sub.addEventListener("click", function() {
         closeSubmit();
     });
@@ -15,21 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
     addRow.addEventListener("click", function() {
       addFields();
    });
-=======
-        var sub = document.getElementById("submit");
-        var addRow = document.getElementById("addRow");
-        sub.addEventListener("click", function() {
-            console.log("clicked submit");
-            closeSubmit();
-        });
-        addRow.addEventListener("click", function() {
-            console.log("clicked addRow");
-            addFields();
-        });
-    
-    });
-    
->>>>>>> 418f6a052ac3f53abc121f6d4bef1b3e2fd858eb
 });
 
 
@@ -49,58 +36,42 @@ function openPlusMenu () {
 }
 
 function closeSubmit(){
-<<<<<<< HEAD
     console.log("We are here");
     var submit = document.getElementById("plusMenu");
     submit.style.visibility = "hidden";
-=======
-    console.log("beeb");
-    var plusmenu = document.getElementById("plusMenu");
-    plusmenu.style.visibility = "hidden";
->>>>>>> 418f6a052ac3f53abc121f6d4bef1b3e2fd858eb
 }
 
 
 var fields = 0;
 
 function addFields() {
+   var addRow = document.getElementById('addRow');
+   if (fields == 5) {
+      console.log("did this work");
+      addRow.visibility = "hidden";
+   }
+   console.log(addRow.visibility);
    fields++;
-<<<<<<< HEAD
-   var plusMenu = document.getElementById('plusMenu');
+   var plusForm = document.getElementById('plusForm');
    var nameTxt = document.createTextNode("Name: ");
    // var nameTxt = document.createElement('p');
    // nameTxt.innerHTML = "Name: ";
-   plusMenu.appendChild(nameTxt);
-   var name = document.createElement('input');
-=======
-   var plusForm = document.getElementById("plusForm");
-   var nameTxt = document.createTextNode("Name: ");
    plusForm.appendChild(nameTxt);
-   var name = document.createElement("input");
->>>>>>> 418f6a052ac3f53abc121f6d4bef1b3e2fd858eb
+   var name = document.createElement('input');
    name.type = "text";
    name.id = "name" + fields;
-   plusMenu.appendChild(name);
-   var urlTxt = document.createTextNode("URL: ");
-<<<<<<< HEAD
+   plusForm.appendChild(name);
+   var urlTxt = document.createTextNode("Link: ");
    // var urlTxt = document.createElement('p');
    // urlTxt.innerHTML = "URL: ";
-   plusMenu.appendChild(urlTxt);
+   plusForm.appendChild(urlTxt);
    var url = document.createElement('input');
    url.type = "text";
    url.id = "url" + fields;
-   plusMenu.appendChild(url);
-   var br = document.createElement('br');
-   plusMenu.appendChild(br);
-   console.log("We are here now");
-=======
-   plusForm.appendChild(urlTxt);
-   var url = document.createElement("input");
-   url.type = "text";
-   url.id = "url" + fields;
    plusForm.appendChild(url);
-   plusForm.appendChild("br");
->>>>>>> 418f6a052ac3f53abc121f6d4bef1b3e2fd858eb
+   var br = document.createElement('br');
+   plusForm.appendChild(br);
+   console.log(fields);
 }
 
 
@@ -109,7 +80,6 @@ function loadGroups() {
   var i;
   for (i = totalgroups; i > 0 ; i -= 1){
       document.createElement("COMP 1531");
-
   }
 
 }
