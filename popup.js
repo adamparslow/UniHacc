@@ -45,12 +45,10 @@ function closeSubmit(){
 var fields = 0;
 
 function addFields() {
-   var addRow = document.getElementById('addRow');
    if (fields == 5) {
-      console.log("did this work");
-      addRow.visibility = "hidden";
+      var addRow = document.getElementById('addRow');
+      addRow.disabled = true;
    }
-   console.log(addRow.visibility);
    fields++;
    var plusForm = document.getElementById('plusForm');
    var nameTxt = document.createTextNode("Name: ");
@@ -76,10 +74,12 @@ function addFields() {
 
 
 function loadGroups() {
-  var totalgroups = 0; //import this from taras's database
-  var i;
-  for (i = totalgroups; i > 0 ; i -= 1){
-      document.createElement("COMP 1531");
-  }
+   var data = getData(null);
+   console.log(data.keys());
+  // var totalgroups = 0; //import this from taras' database
+  // var i;
+  // for (i = totalgroups; i > 0 ; i -= 1){
+  //     document.createElement("COMP 1531");
+  // }
 
 }
