@@ -7,13 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
         openPlusMenu();
     });
 
-    sub.addEventListener("Submit", function() {
+    sub.addEventListener("submit", function() {
         closeSubmit();
     });
+<<<<<<< HEAD
 
     addRow.addEventListener("click", function() {
       addFields();
    })
+=======
+    
+>>>>>>> 2e2bb918b7555600b5cd81f144ce5181d9b9b4ef
 });
 
 
@@ -31,16 +35,9 @@ function openPlusMenu () {
 }
 
 function closeSubmit(){
-    var submit = document.getElementById("Submit");
+    var submit = document.getElementById("submit");
     submit.style.visibility = "hidden";
 }
-
-/*
-sub.addEventListener("Submit", function() {
-        closeSubmit();
-    });
-
-*/
 
 
 var fields = 0;
