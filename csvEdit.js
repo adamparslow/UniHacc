@@ -9,11 +9,19 @@ function addGroup(groupName, args) {
 	console.log(data);
 	var obj = {};
 	obj[groupName] = data;
-	chrome.storage.local.set(obj);
+	chrome.storage.sync.set(obj);
 }
 
 function getData(groupName){
-	chrome.storage.local.get(groupName, function(items){
+	chrome.storage.sync.get(groupName, function(items){
           console.log(items);
 	});
+}
+
+function removeGroup(groupName){
+	chrome.storage.sync.remove(groupName);
+}
+
+function removeAll(){
+	chrome.storage.sync.remove();
 }
