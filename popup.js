@@ -150,6 +150,14 @@ function displayGroup(groupName){
       		main.removeChild(main.firstChild);
       	}
       }
+
+      var edit = document.createElement('button');
+      edit.id = "edit";
+      edit.innerHTML = "Edit";
+      edit.onclick = function () {
+         editGroup(groupName);
+      }
+      main.appendChild(edit);
       main.appendChild(bin);
 	});
 }
@@ -166,29 +174,36 @@ function editGroup(groupName){
 		title.innerHTML = groupName;
 		main.appendChild(title);
 		for(i = 0; i < items.length; i++){
-			var item = document.getElementById("plusForm");
+         console.log(items);
+			// var item = document.getElementById("plusForm");
 			var nameTxt = document.createTextNode("Name: ");
-		   	item.appendChild(nameTxt);
+		   	main.appendChild(nameTxt);
 			var name = document.createElement('input');
 		   	name.type = "text";
 		   	name.value = items[i][0];
 		   	name.id = "name" + i;
-		   	item.appendChild(name);
+		   	main.appendChild(name);
 		   	var urlTxt = document.createTextNode("Link: ");
-		   	item.appendChild(urlTxt);
+		   	main.appendChild(urlTxt);
 		   	var url = document.createElement('input');
 		   	url.type = "text";
 		   	url.id = "link" + i;
 		   	url.value = items[i][1];
+            main.appendChild(url);
 		   	var button = document.createElement('button');
 		   	var span = document.createElement('span');
 		   	span.innerHTML = "&#x2b;";
 		   	button.class = "glyphicon";
+            button.onclick = function () {
+               deleteAlias(groupName, i);
+               editGroup(groupName);
+            }
 		   	button.appendChild(span);
+            main.appendChild(button);
 		}
 	});
 	// on click of submit:
-	displayGroup(groupName);
+	// displayGroup(groupName);
 }
 
 function deleteAlias(groupName,i){
