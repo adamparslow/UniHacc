@@ -1,5 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
+    loadGroups();
+
     var plus = document.getElementById("plus");
     
     plus.addEventListener("click", function() {
@@ -61,4 +63,15 @@ function addFields() {
    url.id = "url" + fields;
    plusForm.appendChild(url);
    plusForm.appendChild("br");
+}
+
+
+function loadGroups() {
+  var totalgroups = 0; //import this from taras's database
+  var i;
+  for (i = totalgroups; i > 0 ; i -= 1){
+      document.createElement("COMP 1531");
+
+  }
+
 }
