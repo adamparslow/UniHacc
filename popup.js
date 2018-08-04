@@ -30,17 +30,42 @@ function okButton (){
 }
 
 function openPlusMenu () {
-    console.log("benlo");
     var plusmenu = document.getElementById("plusMenu");
     plusmenu.style.visibility = "visible";
 }
 
 function closeSubmit(){
-    console.log("We are here");
-    var submit = document.getElementById("plusMenu");
-    submit.style.visibility = "hidden";
+   var groupName = document.getElementById('groupName');
+   var isVerified = true;
+   if (!verifyInput(groupName)) {
+      isVerified = false;
+   }
+   var data = [];
+   for (let i = 0; i <= fields; i++) {
+      let name = document.getElementById('name' + i);
+      let link = document.getElementById('link' + i);
+      if (!verifyInput(name) && !verifyInput(link)) {
+         isVerified = false;
+         break;
+      }
+      data.push([name, link]);
+   }
+   if (!isVerified) {
+      console.log("Make sure all fields are filled out");
+   } else {
+   	var obj = {};
+   	obj[groupName] = data;
+   	chrome.storage.sync.set(obj);
+
+      var submit = document.getElementById("plusMenu");
+      submit.style.visibility = "hidden";
+   }
 }
 
+function verifyInput(str) {
+   if (str == "") return false;
+   else return true;
+}
 
 var fields = 0;
 
