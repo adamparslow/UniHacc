@@ -156,6 +156,11 @@ function editGroup(groupName){
 		   	url.type = "text";
 		   	url.id = "link" + i;
 		   	url.value = items[i][1];
+		   	var button = document.createElement('button');
+		   	var span = document.createElement('span');
+		   	span.innerHTML = "&#x2b;";
+		   	button.class = "glyphicon";
+		   	button.appendChild(span);
 		}
 	});
 	// on click of submit:
@@ -163,7 +168,8 @@ function editGroup(groupName){
 }
 
 function deleteAlias(groupName,i){
-	main.removeChild(main.chilNodes[i]);
+	main.removeChild(main.childNodes[i]);
+	chrome.storage.sync.remove(groupName);
 }
 
 function loadGroups() {
