@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
         openPlusMenu();
     });
 
-    sub.addEventListener("Submit", function() {
+    sub.addEventListener("submit", function() {
         closeSubmit();
     });
+    
 });
 
 
@@ -26,16 +27,9 @@ function openPlusMenu () {
 }
 
 function closeSubmit(){
-    var submit = document.getElementById("Submit");
+    var submit = document.getElementById("submit");
     submit.style.visibility = "hidden";
 }
-
-/*
-sub.addEventListener("Submit", function() {
-        closeSubmit();
-    });
-
-*/
 
 
 var fields = 0;
