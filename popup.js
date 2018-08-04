@@ -31,7 +31,7 @@ function openPlusMenu () {
 }
 
 function closeSubmit(){
-    var submit = document.getElementById("submit");
+    var submit = document.getElementById("plusMenu");
     submit.style.visibility = "hidden";
 }
 
