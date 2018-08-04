@@ -53,10 +53,14 @@ function closeSubmit(){
    }
    if (!isVerified) {
       console.log("Make sure all fields are filled out");
+      var error = document.getElementById('errorMessage');
+      error.innerHTML = "Please fill all fields";
    } else {
    	var obj = {};
    	obj[groupName] = data;
    	chrome.storage.sync.set(obj);
+
+      fields = 0;
 
       var submit = document.getElementById("plusMenu");
       submit.style.visibility = "hidden";
@@ -116,17 +120,37 @@ function displayGroup(groupName){
       console.log(items);
 		for(i = 0; i < items.length; i++){
 			var icon = document.createElement('img');
-			icon.src = "http://s2.googleusercontent.com/s2/favicons?domain_url=" 
+			icon.src = "http://s2.googleusercontent.com/s2/favicons?domain_url="
 						+ items[i][1];
-			main.appendChild(icon);
+			// main.appendChild(icon);
 			var link = document.createElement('a');
          	console.log(link);
 			link.href = items[i][1];
-			link.innerHTML = items[i][0];
+         link.appendChild(icon);
+         link.target = "_blank";
+         var txt = document.createTextNode(items[i][0]);
+         link.appendChild(txt);
 			main.appendChild(link);
 			var br = document.createElement('br');
    		main.appendChild(br);
 		}
+      var bin = document.createElement('button');
+      var icon = document.createElement('span');
+      icon.classList.add('glyphicon');
+      icon.classList.add('glyphicon-trash');
+      icon.innerHTML = '&#xe020;';
+      bin.appendChild(icon);
+      bin.id = "minus";
+      bin.classList.add('button');
+      bin.classList.add('button-default');
+      bin.onclick = function () {
+         chrome.storage.sync.remove(groupName);
+         loadGroups();
+      	while(main.firstChild){
+      		main.removeChild(main.firstChild);
+      	}
+      }
+      main.appendChild(bin);
 	});
 }
 

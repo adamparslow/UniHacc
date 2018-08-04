@@ -7,8 +7,19 @@
 
   "background": {
      "scripts": ["background.js"],
+
      "persistent": false
   },
+
+  "web_accessible_resource": [
+     "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  ],
+
+  "content_scripts": [
+      {
+         "css": ["https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"]
+      }
+  ]
 
   "browser_action": {
     "default_icon": "icon.png",
