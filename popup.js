@@ -74,6 +74,8 @@ function addFields() {
 
 function displayGroup(groupName){
 	var main = document.getElementById("main");
+	var title = document.createElement('h3');
+	title.innerHTML = groupName;
 	chrome.storage.sync.get(groupName,function(items){
 		for(i = 0; i < items.length(); i++){
 			var link = document.createElement('a');
