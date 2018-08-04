@@ -130,6 +130,42 @@ function displayGroup(groupName){
 	});
 }
 
+function editGroup(groupName){
+	chrome.storage.sync.get(groupName,function(group){
+		var items = Object.values(group)[0];
+		// add in a trash next to each field and make text boxes editable
+		var main = document.getElementById("main");
+		while(main.firstChild){
+			main.removeChild(main.firstChild);
+		}
+		var title = document.createElement('h3');
+		title.innerHTML = groupName;
+		main.appendChild(title);
+		for(i = 0; i < items.length; i++){
+			var item = document.getElementById("plusForm");
+			var nameTxt = document.createTextNode("Name: ");
+		   	item.appendChild(nameTxt);
+			var name = document.createElement('input');
+		   	name.type = "text";
+		   	name.value = items[i][0];
+		   	name.id = "name" + i;
+		   	item.appendChild(name);
+		   	var urlTxt = document.createTextNode("Link: ");
+		   	item.appendChild(urlTxt);
+		   	var url = document.createElement('input');
+		   	url.type = "text";
+		   	url.id = "link" + i;
+		   	url.value = items[i][1];
+		}
+	});
+	// on click of submit:
+	displayGroup(groupName);
+}
+
+function deleteAlias(groupName,i){
+	main.removeChild(main.chilNodes[i]);
+}
+
 function loadGroups() {
    chrome.storage.sync.get(null, function (items) {
       var keys = Object.keys(items);
@@ -149,11 +185,4 @@ function loadGroups() {
          sidebar.appendChild(button);
       });
    });
-
-  // var totalgroups = 0; //import this from taras' database
-  // var i;
-  // for (i = totalgroups; i > 0 ; i -= 1){
-  //     document.createElement("COMP 1531");
-  // }
-
 }
