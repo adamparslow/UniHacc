@@ -1,0 +1,4 @@
+rapydscript -b -p -m hello.py > hello.js
+rm -r compiledpythonextension/hello.js
+mv hello.js compiledpythonextension
+rapydscript -b -p -m helloworld.py > helloworld.js
