@@ -42,8 +42,9 @@ function closeSubmit(){
    }
    var data = [];
    for (let i = 0; i <= fields; i++) {
-      let name = document.getElementById('name' + i);
-      let link = document.getElementById('link' + i);
+      console.log('name' + i)
+      let name = document.getElementById('name' + i).value;
+      let link = document.getElementById('link' + i).value;
       if (!verifyInput(name) && !verifyInput(link)) {
          isVerified = false;
          break;
