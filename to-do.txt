@@ -1,0 +1,7 @@
+For chrome extension:
+- Build UI
+- Make redirects inside buttons
+- Make user input capability
+- Make user input save capability in database (either based on login or on machine key)
+- Potentially authenticate with gmail
+- 
