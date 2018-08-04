@@ -1,20 +1,26 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-    var plus = document.getElementById('plus');
-    var sub = document.getElementById('submit');
-    var addRow = document.getElementById('addRow');
+document.addEventListener("DOMContentLoaded", function() {
+    var plus = document.getElementById("plus");
+    
     plus.addEventListener("click", function() {
-        openPlusMenu();
-    });
+        openPlusMenu(); 
 
-    sub.addEventListener("submit", function() {
-        closeSubmit();
+        var sub = document.getElementById("submit");
+        var addRow = document.getElementById("addRow");
+        sub.addEventListener("click", function() {
+            console.log("clicked submit");
+            closeSubmit();
+        });
+        addRow.addEventListener("click", function() {
+            console.log("clicked addRow");
+            addFields();
+        });
+    
     });
-
-    addRow.addEventListener("click", function() {
-      addFields();
-   })
+    
 });
+
+
 
 
 
@@ -31,26 +37,28 @@ function openPlusMenu () {
 }
 
 function closeSubmit(){
-    var submit = document.getElementById("plusMenu");
-    submit.style.visibility = "hidden";
+    console.log("beeb");
+    var plusmenu = document.getElementById("plusMenu");
+    plusmenu.style.visibility = "hidden";
 }
 
 
 var fields = 0;
+
 function addFields() {
    fields++;
-   var plusForm = document.getElementById('plusForm');
+   var plusForm = document.getElementById("plusForm");
    var nameTxt = document.createTextNode("Name: ");
    plusForm.appendChild(nameTxt);
-   var name = document.createElement('input');
+   var name = document.createElement("input");
    name.type = "text";
    name.id = "name" + fields;
    plusForm.appendChild(name);
    var urlTxt = document.createTextNode("URL: ");
    plusForm.appendChild(urlTxt);
-   var url = document.createElement('input');
+   var url = document.createElement("input");
    url.type = "text";
    url.id = "url" + fields;
    plusForm.appendChild(url);
-   plusForm.appendChild('br');
+   plusForm.appendChild("br");
 }
