@@ -135,11 +135,7 @@ function displayGroup(groupName){
    		main.appendChild(br);
 		}
       var bin = document.createElement('button');
-      var icon = document.createElement('span');
-      icon.classList.add('glyphicon');
-      icon.classList.add('glyphicon-trash');
-      icon.innerHTML = '&#xe020;';
-      bin.appendChild(icon);
+      bin.innerHTML = "Delete";
       bin.id = "minus";
       bin.classList.add('button');
       bin.classList.add('button-default');
