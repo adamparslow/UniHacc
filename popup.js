@@ -30,17 +30,42 @@ function okButton (){
 }
 
 function openPlusMenu () {
-    console.log("benlo");
     var plusmenu = document.getElementById("plusMenu");
     plusmenu.style.visibility = "visible";
 }
 
 function closeSubmit(){
-    console.log("We are here");
-    var submit = document.getElementById("plusMenu");
-    submit.style.visibility = "hidden";
+   var groupName = document.getElementById('groupName');
+   var isVerified = true;
+   if (!verifyInput(groupName)) {
+      isVerified = false;
+   }
+   var data = [];
+   for (let i = 0; i <= fields; i++) {
+      let name = document.getElementById('name' + i);
+      let link = document.getElementById('link' + i);
+      if (!verifyInput(name) && !verifyInput(link)) {
+         isVerified = false;
+         break;
+      }
+      data.push([name, link]);
+   }
+   if (!isVerified) {
+      console.log("Make sure all fields are filled out");
+   } else {
+   	var obj = {};
+   	obj[groupName] = data;
+   	chrome.storage.sync.set(obj);
+
+      var submit = document.getElementById("plusMenu");
+      submit.style.visibility = "hidden";
+   }
 }
 
+function verifyInput(str) {
+   if (str == "") return false;
+   else return true;
+}
 
 var fields = 0;
 
@@ -73,31 +98,40 @@ function addFields() {
 }
 
 function displayGroup(groupName){
+   	console.log("thigns");
 	var main = document.getElementById("main");
 	var title = document.createElement('h3');
 	title.innerHTML = groupName;
-	chrome.storage.sync.get(groupName,function(items){
-		for(i = 0; i < items.length(); i++){
+   	console.log(main);
+	chrome.storage.sync.get(groupName,function(group){
+      console.log(group);
+      var items = Object.values(group)[0];
+      console.log(items);
+		for(i = 0; i < items.length; i++){
 			var link = document.createElement('a');
+         console.log(link);
 			link.href = items[i][1];
 			link.innerHTML = items[i][0];
 			main.appendChild(link);
 			var br = document.createElement('br');
-	   		main.appendChild(br);
-   		}
+   		main.appendChild(br);
+		}
 	});
 }
 
 function loadGroups() {
    chrome.storage.sync.get(null, function (items) {
       var keys = Object.keys(items);
-      var sidebar = document.getElementById('sticky_sidebar');
+      var sidebar = document.getElementById('sidebar');
       console.log(keys);
       keys.forEach(function (key) {
          var button = document.createElement('button');
-         // Add event listener
-         console.log(key);
+         // console.log(key);
          button.innerHTML = key.toString();
+         button.onclick = function () {
+            displayGroup(key.toString());
+         }
+
          sidebar.appendChild(button);
       });
    });
