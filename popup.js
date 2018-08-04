@@ -191,6 +191,7 @@ function editGroup(groupName){
 		   	span.innerHTML = "&#x2b;";
 		   	button.class = "glyphicon";
             button.onclick = function () {
+               console.log("Things");
                deleteAlias(groupName, i);
                editGroup(groupName);
             }
@@ -204,7 +205,15 @@ function editGroup(groupName){
 
 function deleteAlias(groupName,i){
 	main.removeChild(main.childNodes[i]);
-	chrome.storage.sync.remove(groupName);
+	chrome.storage.sync.get(groupName,function(group){
+		var items = Object.values(group)[0];
+      console.log(items);
+		items.splice(i,1);
+      console.log(items);
+		var obj = {};
+		obj[groupName] = items;
+		chrome.storage.sync.set(obj);
+	});
 }
 
 function loadGroups() {
