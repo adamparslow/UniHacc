@@ -26,6 +26,11 @@
          margin: 0 auto;
          width: 100%;
       }
+
+      #plusMenu {
+         width: 100%;
+         height: 100%;
+      }
     </style>
 
     <!--
@@ -38,19 +43,30 @@
   </head>
   <body>
     <div id="status"></div>
-    <div class="container-full">
+    <div class="container-full text-right">
       <button class="button button-default" id="plus"><span class="glyphicon">&#x2b;</span></button>
     </div>
     <div class="container-full">
       <div class="row">
-         <div id="sticky_sidebar" class="col-3" style="background:blue;">
-            Blah
+         <div id="sticky_sidebar" class="col-3 text-align" style="background:blue;">
+            <div class="row">
+               <div class="col"></div>
+               <div class="col">
+                  <a href="#">COMP1521</a>
+                  <a href="#">COMP1521</a>
+                  <a href="#">COMP1521</a>
+                  <a href="#">COMP1521</a>
+                  <a href="#">COMP1521</a>
+               </div>
+               <div class="col"></div>
+            </div>
          </div>
          <div id="main" class="col-9" style="background:red;">
             More things
          </div>
       </div>
     </div>
-    <img id="image-result" hidden>
+
+    <div id="plusMenu"><div>
   </body>
 </html>
