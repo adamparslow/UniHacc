@@ -74,8 +74,19 @@ function addFields() {
 
 
 function loadGroups() {
-   var data = getData(null);
-   console.log(data.keys());
+   chrome.storage.sync.get(null, function (items) {
+      var keys = Object.keys(items);
+      var sidebar = document.getElementById('sticky_sidebar');
+      console.log(keys);
+      keys.forEach(function (key) {
+         var button = document.createElement('button');
+         // Add event listener
+         console.log(key);
+         button.innerHTML = key.toString();
+         sidebar.appendChild(button);
+      });
+   });
+
   // var totalgroups = 0; //import this from taras' database
   // var i;
   // for (i = totalgroups; i > 0 ; i -= 1){
