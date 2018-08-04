@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var plus = document.getElementById('plus');
     var sub = document.getElementById('submit');
+    var addRow = document.getElementById('addRow');
     plus.addEventListener("click", function() {
         openPlusMenu();
     });
@@ -9,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
     sub.addEventListener("Submit", function() {
         closeSubmit();
     });
+
+    addRow.addEventListener("click", function() {
+      addFields();
+   })
 });
 
 
