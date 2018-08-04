@@ -15,5 +15,5 @@ function addGroup(groupName, args) {
 function getData(groupName){
 	chrome.storage.local.get(groupName, function(items){
           console.log(items);
-        });
+	});
 }
