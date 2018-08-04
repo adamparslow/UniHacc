@@ -135,11 +135,7 @@ function displayGroup(groupName){
    		main.appendChild(br);
 		}
       var bin = document.createElement('button');
-      var icon = document.createElement('span');
-      icon.classList.add('glyphicon');
-      icon.classList.add('glyphicon-trash');
-      icon.innerHTML = '&#xe020;';
-      bin.appendChild(icon);
+      bin.innerHTML = "Delete";
       bin.id = "minus";
       bin.classList.add('button');
       bin.classList.add('button-default');
@@ -195,6 +191,7 @@ function editGroup(groupName){
 		   	span.innerHTML = "&#x2b;";
 		   	button.class = "glyphicon";
             button.onclick = function () {
+               console.log("Things");
                deleteAlias(groupName, i);
                editGroup(groupName);
             }
@@ -208,7 +205,15 @@ function editGroup(groupName){
 
 function deleteAlias(groupName,i){
 	main.removeChild(main.childNodes[i]);
-	chrome.storage.sync.remove(groupName);
+	chrome.storage.sync.get(groupName,function(group){
+		var items = Object.values(group)[0];
+      console.log(items);
+		items.splice(i,1);
+      console.log(items);
+		var obj = {};
+		obj[groupName] = items;
+		chrome.storage.sync.set(obj);
+	});
 }
 
 function loadGroups() {
