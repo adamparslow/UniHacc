@@ -102,6 +102,7 @@ function displayGroup(groupName){
 	var main = document.getElementById("main");
 	var title = document.createElement('h3');
 	title.innerHTML = groupName;
+	main.appendChild(title);
    	console.log(main);
 	chrome.storage.sync.get(groupName,function(group){
       console.log(group);
