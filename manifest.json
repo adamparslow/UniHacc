@@ -19,7 +19,8 @@
         "js": ["popup.js", "js/bootstrap.min.js"],
         "css": ["css/bootstrap.min.css"]
       }
-  ],
+  ]
+  
 */
   "browser_action": {
     "default_icon": "icon.png",
