@@ -192,7 +192,8 @@ function editGroup(groupName){
 		   	button.class = "glyphicon";
             button.onclick = function () {
                console.log("Things");
-               deleteAlias(groupName, i);
+               var index = i;
+               deleteAlias(groupName, index);
                editGroup(groupName);
             }
 		   	button.appendChild(span);
@@ -205,6 +206,7 @@ function editGroup(groupName){
 
 function deleteAlias(groupName,i){
 	main.removeChild(main.childNodes[i]);
+   console.log(i);
 	chrome.storage.sync.get(groupName,function(group){
 		var items = Object.values(group)[0];
       console.log(items);
