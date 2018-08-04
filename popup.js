@@ -35,7 +35,7 @@ function openPlusMenu () {
 }
 
 function closeSubmit(){
-   var groupName = document.getElementById('groupName');
+   var groupName = document.getElementById('groupName').value;
    var isVerified = true;
    if (!verifyInput(groupName)) {
       isVerified = false;
@@ -60,6 +60,8 @@ function closeSubmit(){
 
       var submit = document.getElementById("plusMenu");
       submit.style.visibility = "hidden";
+
+      loadGroups();
    }
 }
 
@@ -91,7 +93,7 @@ function addFields() {
    plusForm.appendChild(urlTxt);
    var url = document.createElement('input');
    url.type = "text";
-   url.id = "url" + fields;
+   url.id = "link" + fields;
    plusForm.appendChild(url);
    var br = document.createElement('br');
    plusForm.appendChild(br);
@@ -128,6 +130,9 @@ function loadGroups() {
    chrome.storage.sync.get(null, function (items) {
       var keys = Object.keys(items);
       var sidebar = document.getElementById('sidebar');
+      while (sidebar.firstChild) {
+         sidebar.removeChild(sidebar.firstChild);
+      }
       console.log(keys);
       keys.forEach(function (key) {
          var button = document.createElement('button');
