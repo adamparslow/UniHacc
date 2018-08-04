@@ -10,14 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
     sub.addEventListener("submit", function() {
         closeSubmit();
     });
-<<<<<<< HEAD
 
     addRow.addEventListener("click", function() {
       addFields();
    })
-=======
-    
->>>>>>> 2e2bb918b7555600b5cd81f144ce5181d9b9b4ef
 });
 
 
