@@ -223,11 +223,11 @@ function deleteAlias(groupName,i){
 		var obj = {};
 		obj[groupName] = items;
 		chrome.storage.sync.set(obj);
-      updateEdit(items);
+      updateEdit(items, groupName);
 	});
 }
 
-function updateEdit(items) {
+function updateEdit(items, groupName) {
 	var main = document.getElementById("main");
 	while(main.firstChild){
 		main.removeChild(main.firstChild);
