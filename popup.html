@@ -34,7 +34,8 @@
          height: 100%;
          background:#e8e8e8;
          position: absolute;
-         top: 10px;
+         left: 0px;
+         top: 9px;
          visibility: hidden;
       }
 
@@ -76,9 +77,9 @@
   </head>
   <body>
     <div id="status"></div>
-    <div class="container text-right" style="background:#e8e8e8">
+    <div class="container text-right" style="background:#e8e8e8;">
       <!-- <span class="glyphicon">&#x2b;</span> -->
-      <button type="button" class="btn btn-info" id="plus"><span class="glyphicon">&#x2b;</span></button>
+      <button type="button" class="btn btn-info" style=" margin-top: 12px;" id="plus"><span class="glyphicon">&#x2b;</span></button>
     </div>
     <div class="container-full" style="height:100%">
       <div class="row" style="height:100%">
@@ -101,8 +102,8 @@
          Group Name: <input type="text" id="groupName"> <br>
          Name: <input type="text" id="name0"> Link: <input type="text" id="link0"> <br>
       </div>
-      <button id="addRow" class="button button-default"><span class="glyphicon">&#x2b;</span></button>
-      <button id="submit" type="button" class="button button-default">Submit</button>
+      <button id="addRow" class="btn btn-info"><span class="glyphicon">+</span></button>
+      <button id="submit" type="button" class="btn btn-info">Submit</button>
       <p id="errorMessage"></p>
     </div>
   </body>
