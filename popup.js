@@ -179,6 +179,7 @@ function editGroup(groupName){
 		   	name.type = "text";
 		   	name.value = items[i][0];
 		   	name.id = "name" + i;
+            name.size = 10;
 		   	main.appendChild(name);
 		   	var urlTxt = document.createTextNode("Link: ");
 		   	main.appendChild(urlTxt);
@@ -187,6 +188,7 @@ function editGroup(groupName){
 		   	url.id = "link" + i;
 		   	url.value = items[i][1];
             main.appendChild(url);
+            url.size = 15;
 		   	var button = document.createElement('button');
 		   	var span = document.createElement('span');
 		   	span.innerHTML = "&#x2b;";
@@ -194,6 +196,8 @@ function editGroup(groupName){
             buttons.push(button);
 		   	button.appendChild(span);
             main.appendChild(button);
+            var br = document.createElement('br');
+            main.appendChild(br);
 		}
       buttons.forEach(function (button) {
          button.onclick = function () {
@@ -236,26 +240,30 @@ function updateEdit(items) {
       console.log(items);
 		// var item = document.getElementById("plusForm");
 		var nameTxt = document.createTextNode("Name: ");
-	   	main.appendChild(nameTxt);
-		var name = document.createElement('input');
-	   	name.type = "text";
-	   	name.value = items[i][0];
-	   	name.id = "name" + i;
-	   	main.appendChild(name);
-	   	var urlTxt = document.createTextNode("Link: ");
-	   	main.appendChild(urlTxt);
-	   	var url = document.createElement('input');
-	   	url.type = "text";
-	   	url.id = "link" + i;
-	   	url.value = items[i][1];
-         main.appendChild(url);
-	   	var button = document.createElement('button');
-	   	var span = document.createElement('span');
-	   	span.innerHTML = "&#x2b;";
-	   	button.class = "glyphicon";
-         buttons.push(button);
-	   	button.appendChild(span);
-         main.appendChild(button);
+      main.appendChild(nameTxt);
+      var name = document.createElement('input');
+      name.type = "text";
+      name.value = items[i][0];
+      name.id = "name" + i;
+      name.size = 10;
+      main.appendChild(name);
+      var urlTxt = document.createTextNode("Link: ");
+      main.appendChild(urlTxt);
+      var url = document.createElement('input');
+      url.type = "text";
+      url.id = "link" + i;
+      url.value = items[i][1];
+      main.appendChild(url);
+      url.size = 15;
+      var button = document.createElement('button');
+      var span = document.createElement('span');
+      span.innerHTML = "&#x2b;";
+      button.class = "glyphicon";
+      buttons.push(button);
+      button.appendChild(span);
+      main.appendChild(button);
+      var br = document.createElement('br');
+      main.appendChild(br);
 	}
    buttons.forEach(function (button) {
       button.onclick = function () {
