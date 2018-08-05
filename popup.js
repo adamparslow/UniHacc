@@ -262,6 +262,7 @@ function submitEdit(groupName) {
       submit.style.visibility = "hidden";
 
       loadGroups();
+      displayGroup(groupName);
    }
 }
 
