@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="bootstrap.css"> -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-    <style>
+         <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
@@ -31,23 +31,25 @@
 
       #plusMenu {
          width: 100%;
+         overflow-y: auto;
          height: 100%;
          background:#e8e8e8;
          position: absolute;
-         top: 10px;
+         left: 0px;
+         top: 9px;
          visibility: hidden;
       }
 
       #minus {
          position:absolute;
-         bottom: 5px;
-         right: 20px;
+         bottom: 40px;
+         right: 15px;
       }
 
       #edit {
          position: absolute;
-         bottom: 5px;
-         right: 85px;
+         bottom: 40px;
+         right: 90px;
       }
 
       #main {
@@ -78,7 +80,7 @@
     <div id="status"></div>
     <div class="container text-right" style="background:#e8e8e8">
       <!-- <span class="glyphicon">&#x2b;</span> -->
-      <button type="button" class="btn btn-info" id="plus"><span class="glyphicon">&#x2b;</span></button>
+      <button type="button" class="btn btn-info" style="margin: 15px;" id="plus"><span class="glyphicon">&#x2b;</span></button>
     </div>
     <div class="container-full" style="height:100%">
       <div class="row" style="height:100%">
@@ -98,11 +100,11 @@
 
     <div id="plusMenu">
       <div id="plusForm">
-         Group Name: <input type="text" id="groupName"> <br>
-         Name: <input type="text" id="name0"> Link: <input type="text" id="link0"> <br>
+         Group: <input type="text" id="groupName" style="margin: 15px;"> <br>
+         Name: <input type="text" id="name0" size = 10> Link: <input type="text" id="link0"> <br>
       </div>
-      <button id="addRow" class="button button-default"><span class="glyphicon">&#x2b;</span></button>
-      <button id="submit" type="button" class="button button-default">Submit</button>
+      <button id="addRow" class="btn btn-info" style="margin: 15px;><span class="glyphicon">&#x2b;</span></button>
+      <button id="submit" type="button" class="btn btn-info" style="margin: 15px;">Submit</button>
       <p id="errorMessage"></p>
     </div>
   </body>
