@@ -34,8 +34,7 @@
          height: 100%;
          background:#e8e8e8;
          position: absolute;
-         left: 0px;
-         top: 9px;
+         top: 10px;
          visibility: hidden;
       }
 
@@ -77,16 +76,16 @@
   </head>
   <body>
     <div id="status"></div>
-    <div class="container text-right" style="background:#e8e8e8;">
+    <div class="container text-right" style="background:#e8e8e8">
       <!-- <span class="glyphicon">&#x2b;</span> -->
-      <button type="button" class="btn btn-info" style=" margin-top: 12px;" id="plus"><span class="glyphicon">&#x2b;</span></button>
+      <button type="button" class="btn btn-info" id="plus"><span class="glyphicon">&#x2b;</span></button>
     </div>
     <div class="container-full" style="height:100%">
       <div class="row" style="height:100%">
          <div id="sticky_sidebar" class="col-s-3 text-align" style="background:#5e5e5e;">
             <div class="row">
                <div class="col"></div>
-               <div class="col" id="sidebar">
+               <div class="col" id="sidebar">an
                </div>
                <div class="col" class="btn-group"></div>
             </div>
@@ -99,11 +98,11 @@
 
     <div id="plusMenu">
       <div id="plusForm">
-         Group Name: <input type="text" style="margin: 15px"id="groupName"> <br>
-         Name: <input type="text" style="margin-bottom: 15px" id="name0"> Link: <input type="text" id="link0"> <br>
+         Group Name: <input type="text" id="groupName"> <br>
+         Name: <input type="text" id="name0"> Link: <input type="text" id="link0"> <br>
       </div>
-      <button id="addRow" style="margin-left: 15px" class="btn btn-info"><span class="glyphicon">+</span></button>
-      <button id="submit" type="button" style="margin: 15px" class="btn btn-info">Submit</button>
+      <button id="addRow" class="button button-default"><span class="glyphicon">&#x2b;</span></button>
+      <button id="submit" type="button" class="button button-default">Submit</button>
       <p id="errorMessage"></p>
     </div>
   </body>

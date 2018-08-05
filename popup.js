@@ -77,7 +77,7 @@ function verifyInput(str) {
 var fields = 0;
 
 function addFields() {
-   if (fields == 5) {
+   if (fields == 3) {
       var addRow = document.getElementById('addRow');
       addRow.disabled = true;
    }
@@ -90,6 +90,7 @@ function addFields() {
    var name = document.createElement('input');
    name.type = "text";
    name.id = "name" + fields;
+   name.style.margin = "10px";
    plusForm.appendChild(name);
    var urlTxt = document.createTextNode("Link: ");
    // var urlTxt = document.createElement('p');
@@ -98,6 +99,7 @@ function addFields() {
    var url = document.createElement('input');
    url.type = "text";
    url.id = "link" + fields;
+   name.style.margin = "10px";
    plusForm.appendChild(url);
    var br = document.createElement('br');
    plusForm.appendChild(br);
