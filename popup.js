@@ -167,6 +167,7 @@ function editGroup(groupName){
 			main.removeChild(main.firstChild);
 		}
 		var title = document.createElement('h3');
+      var buttons = [];
 		title.innerHTML = groupName;
 		main.appendChild(title);
 		for(i = 0; i < items.length; i++){
@@ -190,15 +191,19 @@ function editGroup(groupName){
 		   	var span = document.createElement('span');
 		   	span.innerHTML = "&#x2b;";
 		   	button.class = "glyphicon";
-            button.onclick = function () {
-               console.log("Things");
-               var index = i;
-               deleteAlias(groupName, index);
-               editGroup(groupName);
-            }
+            buttons.push(button);
 		   	button.appendChild(span);
             main.appendChild(button);
 		}
+      buttons.forEach(function (button) {
+         button.onclick = function () {
+            console.log("Things");
+            var index = buttons.indexOf(button);
+            console.log(index);
+            deleteAlias(groupName, index);
+            editGroup(groupName);
+         }
+      })
 	});
 	// on click of submit:
 	// displayGroup(groupName);
