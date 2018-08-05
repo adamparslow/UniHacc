@@ -277,6 +277,11 @@ function loadGroups() {
       console.log(keys);
       keys.forEach(function (key) {
          var button = document.createElement('button');
+         button.type = "button";
+         button.classList.add('btn');
+         button.classList.add('btn-info');
+         button.classList.add('btn-block');
+
          // console.log(key);
          button.innerHTML = key.toString();
          button.onclick = function () {
