@@ -199,6 +199,13 @@ function editGroup(groupName){
             var br = document.createElement('br');
             main.appendChild(br);
 		}
+      var submit = document.createElement('button');
+      submit.id = "editSubmit";
+      submit.innerHTML = "Submit";
+      submit.onclick = function () {
+         submitEdit(groupName);
+      }
+      main.appendChild(submit);
       buttons.forEach(function (button) {
          button.onclick = function () {
             console.log("Things");
@@ -225,6 +232,35 @@ function deleteAlias(groupName,i){
 		chrome.storage.sync.set(obj);
       updateEdit(items, groupName);
 	});
+}
+
+function submitEdit(groupName) {
+   var isVerified = true;
+   var data = [];
+   for (let i = 0; i <= fields; i++) {
+      console.log('name' + i)
+      let name = document.getElementById('name' + i).value;
+      let link = document.getElementById('link' + i).value;
+      if (!verifyInput(name) && !verifyInput(link)) {
+         isVerified = false;
+         break;
+      }
+      data.push([name, link]);
+   }
+   if (!isVerified) {
+      console.log("Make sure all fields are filled out");
+      var error = document.getElementById('errorMessage');
+      error.innerHTML = "Please fill all fields";
+   } else {
+   	var obj = {};
+   	obj[groupName] = data;
+   	chrome.storage.sync.set(obj);
+
+      var submit = document.getElementById("plusMenu");
+      submit.style.visibility = "hidden";
+
+      loadGroups();
+   }
 }
 
 function updateEdit(items, groupName) {
@@ -265,6 +301,12 @@ function updateEdit(items, groupName) {
       var br = document.createElement('br');
       main.appendChild(br);
 	}
+   var submit = document.createElement('button');
+   submit.id = "editSubmit";
+   submit.innerHTML = "Submit";
+   submit.onclick = function () {
+      submitEdit(groupName);
+   }
    buttons.forEach(function (button) {
       button.onclick = function () {
          console.log("Things");
