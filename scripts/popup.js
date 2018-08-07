@@ -45,7 +45,7 @@ function closeSubmit(){
       console.log('name' + i)
       let name = document.getElementById('name' + i).value;
       let link = document.getElementById('link' + i).value;
-      if (!verifyInput(name) && !verifyInput(link)) {
+      if (!verifyInput(name) || !verifyInput(link)) {
          isVerified = false;
          break;
       }
@@ -79,7 +79,7 @@ var fields = 0;
 function addFields() {
    if (fields == 3) {
       var addRow = document.getElementById('addRow');
-      addRow.disabled = true;
+      addRow.disabled = false;
    }
    fields++;
    var plusForm = document.getElementById('plusForm');
@@ -88,6 +88,7 @@ function addFields() {
    // nameTxt.innerHTML = "Name: ";
    plusForm.appendChild(nameTxt);
    var name = document.createElement('input');
+   name.size = 10;
    name.type = "text";
    name.id = "name" + fields;
    name.style.margin = "10px";
@@ -139,8 +140,8 @@ function displayGroup(groupName){
       var bin = document.createElement('button');
       bin.innerHTML = "Delete";
       bin.id = "minus";
-      bin.classList.add('button');
-      bin.classList.add('button-default');
+      bin.classList.add('btn');
+      bin.classList.add('btn-info');
       bin.onclick = function () {
          chrome.storage.sync.remove(groupName);
          loadGroups();
@@ -150,6 +151,8 @@ function displayGroup(groupName){
       }
 
       var edit = document.createElement('button');
+      edit.classList.add('btn');
+      edit.classList.add('btn-info');
       edit.id = "edit";
       edit.innerHTML = "Edit";
       edit.onclick = function () {
